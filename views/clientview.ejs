@@ -1,0 +1,53 @@
+	<h2 class="mb-4"><%= title %></h2>
+	<main>
+		<div class="card shadow-sm mb-4">
+			<div class="card-header bg-primary text-white">
+				<h5 class="mb-0"><%= client.firstName %> <%= client.middleName %> <%= client.lastName %></h5>
+			</div>
+
+			<div class="card-body">
+				<div class="row mb-2">
+					<div class="col-md-6"><strong>ID:</strong> <%= client.id %></div>
+					<div class="col-md-6"><strong>Company:</strong> <%= client.companyName %></div>
+				</div>
+
+				<div class="row mb-2">
+					<div class="col-md-6"><strong>Address:</strong> <%= client.address %></div>
+					<div class="col-md-6"><strong>Region:</strong> <%= client.region %></div>
+				</div>
+
+				<div class="row mb-2">
+					<div class="col-md-6"><strong>City:</strong> <%= client.city %></div>
+					<div class="col-md-6"><strong>Nationality:</strong> <%= client.nationality %></div>
+				</div>
+
+				<div class="row mb-2">
+					<div class="col-md-6"><strong>Date of Birth:</strong> <%= client.dateOfBirth %></div>
+					<div class="col-md-6"><strong>Gender:</strong> <%= client.gender %></div>
+				</div>
+
+				<div class="row mb-2">
+					<div class="col-md-6">
+						<strong>Phone:</strong> <%= Array.isArray(client.phone) ? client.phone.join(", ") : client.phone %>
+					</div>
+					<div class="col-md-6"><strong>Email:</strong> <%= client.email %></div>
+				</div>
+
+				<div class="row mb-2">
+					<div class="col-md-6"><strong>Created At:</strong> <%= client.created_at %></div>
+					<div class="col-md-6"><strong>Updated At:</strong> <%= client.created_at %></div>
+				</div>
+			</div>
+
+			<div class="card-footer d-flex justify-content-between">
+				<a href="/clients" class="btn btn-secondary">← Back to List</a>
+				<div>
+					<a href="/clients/<%= client.id %>/edit" class="btn btn-warning me-2">Edit</a>
+					<form action="/clients/<%= client.id %>?_method=DELETE" method="POST" class="d-inline">
+						<button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</main>
+	

@@ -1,0 +1,119 @@
+
+	<main>
+		<div class="container-fluid justify-content-between align-items-center mb-3">
+			<h2><%= title %></h2>
+		</div>
+
+		<form action="<%= formAction %>" method="<%= method %>" class="mb-4">
+			<% if (method === "POST" && formAction.includes("_method=PUT")) { %>
+			<input type="hidden" name="_method" value="PUT" />
+			<% } %>
+
+			<div class="row g-2">
+				<div class="col-md-4">
+					<input
+						type="text"
+						name="firstName"
+						class="form-control"
+						placeholder="First Name"
+						value="<%= client.firstName || '' %>"
+					/>
+				</div>
+				<div class="col-md-4">
+					<input
+						type="text"
+						name="middleName"
+						class="form-control"
+						placeholder="Middle Name"
+						value="<%= client.middleName || '' %>"
+					/>
+				</div>
+				<div class="col-md-4">
+					<input
+						type="text"
+						name="lastName"
+						class="form-control"
+						placeholder="Last Name"
+						value="<%= client.lastName || '' %>"
+					/>
+				</div>
+				<div class="col-md-4">
+					<input
+						type="text"
+						name="companyName"
+						class="form-control"
+						placeholder="Company Name"
+						value="<%= client.companyName || '' %>"
+					/>
+				</div>
+				<div class="col-md-4">
+					<input
+						type="text"
+						name="address"
+						class="form-control"
+						placeholder="Address"
+						value="<%= client.address || '' %>"
+					/>
+				</div>
+				<div class="col-md-4">
+					<input
+						type="text"
+						name="region"
+						class="form-control"
+						placeholder="Region"
+						value="<%= client.region || '' %>"
+					/>
+				</div>
+				<div class="col-md-4">
+					<input type="text" name="city" class="form-control" placeholder="City" value="<%= client.city || '' %>" />
+				</div>
+				<div class="col-md-4">
+					<input
+						type="text"
+						name="nationality"
+						class="form-control"
+						placeholder="Nationality"
+						value="<%= client.nationality || '' %>"
+					/>
+				</div>
+				<div class="col-md-4">
+					<input
+						type="text"
+						name="dateOfBirth"
+						class="form-control"
+						placeholder="Date Of Birth"
+						value="<%= client.dateOfBirth || '' %>"
+					/>
+				</div>
+				<div class="col-md-4">
+					<input
+						type="text"
+						name="gender"
+						class="form-control"
+						placeholder="Gender"
+						value="<%= client.gender || '' %>"
+					/>
+				</div>
+				<div class="col-md-4">
+					<input type="text" name="phone" class="form-control" placeholder="Phone" value="<%= client.phone || '' %>" />
+				</div>
+				<div class="col-md-4">
+					<input
+						type="text"
+						name="email"
+						class="form-control"
+						placeholder="Personal Email"
+						value="<%= client.email || '' %>"
+					/>
+				</div>
+				<div class="col-md-4">
+					<button type="submit" class="btn btn-primary w-100">Submit</button>
+				</div>
+			</div>
+		</form>
+
+		<div class="d-flex justify-content-between align-items-center mb-3">
+			<a href="<%= backUrl || '/clients' %>" class="btn btn-secondary">Back</a>
+		</div>
+	</main>
+
