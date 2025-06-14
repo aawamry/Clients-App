@@ -21,7 +21,9 @@ class ClientsController {
 				console.log('📋 Total clients found:', clients.length);
 			}
 
-			res.render('clientslist', { clients, title: 'Clients List' });
+			res.render('clientslist', { clients,
+										 title: 'Clients List',
+										success: req.query.success || null });
 		} catch (error) {
 			console.error('❌ Error in listClientsController:', error.message);
 			res.status(500).json({ error: error.message });
@@ -82,7 +84,7 @@ class ClientsController {
 			);
 
 			console.log('✅ New client added:', client?.id);
-			res.status(201).redirect('/clients');
+			res.status(201).redirect('/clients?success=Client added successfully');
 		} catch (error) {
 			console.error('❌ Error in addClientController:', error.message);
 			res.status(500).json({ error: error.message });
@@ -173,7 +175,7 @@ class ClientsController {
 
 			console.log('✅ Client updated with ID:', id);
 			console.time('response-time');
-			res.redirect('/clients');
+			res.redirect('/clients?success=Client updated successfully');
 			console.timeEnd('response-time');
 		} catch (error) {
 			console.error('❌ Error updating client:', error.message);
@@ -195,7 +197,8 @@ class ClientsController {
 			}
 
 			console.log('✅ Client deleted successfully with ID:', id);
-			res.status(200).redirect('/clients');
+			res.status(200).redirect('/clients?success=Client deleted successfully');
+;
 		} catch (error) {
 			console.error('❌ Error deleting client:', error.message);
 			res.status(500).json({ error: error.message });
